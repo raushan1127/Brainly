@@ -11,6 +11,12 @@ const userSchema = new Schema({
     password: String
 })
 
+const contentSchema = new Schema ({
+    title : String,
+    link: String,
+    tags: [{type: mongoose.Types.ObjectId, ref: 'Tag'}],
+    userId: [{type: mongoose.Types.ObjectId, ref: 'user', required: true}]
+})
 
 
 
@@ -19,3 +25,4 @@ const userSchema = new Schema({
 
 
 export const userModel = model("user", userSchema)
+export const contentModel = model('content', contentSchema);
