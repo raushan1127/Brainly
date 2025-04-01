@@ -2,8 +2,8 @@ import  { model,Schema } from "mongoose";
 import mongoose from "mongoose";
 import { ObjectId } from "mongoose";
 
-mongoose.connect('mongodb+srv://kumarraushan2615:Raushan8100.@cluster0.zuwxq.mongodb.net/brainly')
 
+mongoose.connect("mongodb+srv://kumarraushan2615:Raushan8100.@cluster0.zuwxq.mongodb.net/Brainly")
 
 
 const userSchema = new Schema({
@@ -18,11 +18,16 @@ const contentSchema = new Schema ({
     userId: [{type: mongoose.Types.ObjectId, ref: 'user', required: true}]
 })
 
+const LinkSchema = new Schema ({
+    hash: String,
+    userId: {type: mongoose.Types.ObjectId, ref: 'user', required: true}
+})
 
 
 
 
 
 
+export const linkModel = model("links", LinkSchema);
 export const userModel = model("user", userSchema)
 export const contentModel = model('content', contentSchema);

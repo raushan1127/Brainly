@@ -1,6 +1,6 @@
 import { NextFunction, Response,Request } from "express"
 import { Jwt} from "jsonwebtoken"
-import { JWT_PASSWORD } from "../config"
+import { JWT_PASSWORD } from "./config"
 
 
 
